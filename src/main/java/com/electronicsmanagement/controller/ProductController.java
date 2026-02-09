@@ -23,12 +23,32 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
-
+    
+ 
     @PostMapping
     public ResponseEntity<ProductResponse> create(@RequestBody ProductRequest request) {
         return ResponseEntity.ok(productService.createProduct(request));
     }
 
+   
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductResponse> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(productService.getProductById(id));
+    }
+    
+ 
+    @GetMapping
+    public ResponseEntity<List<ProductResponse>> getAllActive() {
+        return ResponseEntity.ok(productService.getAllActiveProducts());
+    }
+
+   
+    @GetMapping("/brand/{brandName}")
+    public ResponseEntity<List<ProductResponse>> getByBrand(@PathVariable String brandName) {
+        return ResponseEntity.ok(productService.getProductsByBrand(brandName));
+    }
+    
+ 
     @PutMapping("/{id}")
     public ResponseEntity<ProductResponse> update(
             @PathVariable Long id,
@@ -36,30 +56,19 @@ public class ProductController {
         return ResponseEntity.ok(productService.updateProduct(id, request));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<ProductResponse> getById(@PathVariable Long id) {
-        return ResponseEntity.ok(productService.getProductById(id));
-    }
-
-    @GetMapping
-    public ResponseEntity<List<ProductResponse>> getAll() {
-        return ResponseEntity.ok(productService.getAllProducts());
-    }
-
-    @GetMapping("/active")
-    public ResponseEntity<List<ProductResponse>> getActive() {
-        return ResponseEntity.ok(productService.getActiveProducts());
-    }
-
+ 
     @PatchMapping("/{id}/deactivate")
     public ResponseEntity<String> deactivate(@PathVariable Long id) {
         productService.deactivateProduct(id);
         return ResponseEntity.ok("Product with id " + id + " successfully deactivated");
     }
+    
 
     @PatchMapping("/{id}/activate")
     public ResponseEntity<String> activate(@PathVariable Long id) {
         productService.activateProduct(id);
-        return ResponseEntity.ok("Product with id " + id + " successfully activated");
+        return ResponseEntity.ok("Dealer with id " + id + " successfully activated");
     }
+    
+
 }

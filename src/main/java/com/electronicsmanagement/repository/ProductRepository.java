@@ -9,11 +9,7 @@ import com.electronicsmanagement.entity.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    Optional<Product> findBySerialNumber(String serialNumber);
-
-    List<Product> findByActiveTrue();
-
-    List<Product> findByCategoryId(Long categoryId);
-
-    List<Product> findByBrandId(Long brandId);
+	List<Product> findByBrand_NameAndActiveTrue(String brandName);
+	
+	List<Product> findByActiveTrue();
 }

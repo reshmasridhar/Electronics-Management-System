@@ -1,50 +1,46 @@
 package com.electronicsmanagement.dto.request;
 
+import java.math.BigDecimal;
+
 public class ProductRequest {
 	
-	 private String name;
-	    private String modelNumber;
-	    private String serialNumber;
-	    private Double price;
-	    private Long categoryId;
-	    private Long brandId;
-		public String getName() {
-			return name;
-		}
-		public void setName(String name) {
-			this.name = name;
-		}
-		public String getModelNumber() {
-			return modelNumber;
-		}
-		public void setModelNumber(String modelNumber) {
-			this.modelNumber = modelNumber;
-		}
-		public String getSerialNumber() {
-			return serialNumber;
-		}
-		public void setSerialNumber(String serialNumber) {
-			this.serialNumber = serialNumber;
-		}
-		public Double getPrice() {
-			return price;
-		}
-		public void setPrice(Double price) {
-			this.price = price;
-		}
-		public Long getCategoryId() {
-			return categoryId;
-		}
-		public void setCategoryId(Long categoryId) {
-			this.categoryId = categoryId;
-		}
-		public Long getBrandId() {
-			return brandId;
-		}
-		public void setBrandId(Long brandId) {
-			this.brandId = brandId;
-		}
-	    
+	private String modelName;
+    private String specifications;
+    private BigDecimal sellingPrice;
+    private Long brandId;
+    private Long categoryId;
+	public String getModelName() {
+		return modelName;
+	}
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
+	}
+	public String getSpecifications() {
+		return specifications;
+	}
+	public void setSpecifications(String specifications) {
+		this.specifications = specifications;
+	}
+	public BigDecimal getSellingPrice() {
+		return sellingPrice;
+	}
+	public void setSellingPrice(BigDecimal sellingPrice) {
+		this.sellingPrice = sellingPrice;
+	}
+	public Long getBrandId() {
+		return brandId;
+	}
+	public void setBrandId(Long brandId) {
+		this.brandId = brandId;
+	}
+	public Long getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
+    
+    
 	    
 
 }

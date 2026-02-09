@@ -1,5 +1,6 @@
 package com.electronicsmanagement.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -14,37 +15,31 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="products")
 public class Product {
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-	
-	@Column(nullable = false)
-	private String name;
-	
-	@Column(nullable = false)
-	private String modelNumber;
-	
-	@Column(nullable = false)
-    private String serialNumber;
-	
-    private Double price;
-    
-    private boolean active;
-    
-    @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
-    private Category category;
-    
+
+    @Column(nullable = false)
+    private String modelName;
+
+    @Column(nullable = false)
+    private String specifications; // RAM, ROM, etc.
+
+    @Column(nullable = false)
+    private BigDecimal sellingPrice;
+
     @ManyToOne
     @JoinColumn(name = "brand_id", nullable = false)
     private Brand brand;
-    
-    private LocalDateTime createdAt;
-    
-    public Product() {
-        this.active = true;
-        this.createdAt = LocalDateTime.now();
-    }
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
+
+    private boolean active = true;
+
+    private LocalDateTime createdAt = LocalDateTime.now();
 
 	public Long getId() {
 		return id;
@@ -54,52 +49,28 @@ public class Product {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getModelName() {
+		return modelName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
 	}
 
-	public String getModelNumber() {
-		return modelNumber;
+	public String getSpecifications() {
+		return specifications;
 	}
 
-	public void setModelNumber(String modelNumber) {
-		this.modelNumber = modelNumber;
+	public void setSpecifications(String specifications) {
+		this.specifications = specifications;
 	}
 
-	public String getSerialNumber() {
-		return serialNumber;
+	public BigDecimal getSellingPrice() {
+		return sellingPrice;
 	}
 
-	public void setSerialNumber(String serialNumber) {
-		this.serialNumber = serialNumber;
-	}
-
-	public Double getPrice() {
-		return price;
-	}
-
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-
-	public boolean isActive() {
-		return active;
-	}
-
-	public void setActive(boolean active) {
-		this.active = active;
-	}
-
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setSellingPrice(BigDecimal sellingPrice) {
+		this.sellingPrice = sellingPrice;
 	}
 
 	public Brand getBrand() {
@@ -110,6 +81,22 @@ public class Product {
 		this.brand = brand;
 	}
 
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
@@ -118,6 +105,7 @@ public class Product {
 		this.createdAt = createdAt;
 	}
     
-    
 
+    
+    
 }

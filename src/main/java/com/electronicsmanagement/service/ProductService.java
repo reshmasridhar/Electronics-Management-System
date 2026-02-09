@@ -9,16 +9,16 @@ public interface ProductService {
 	
 	ProductResponse createProduct(ProductRequest request);
 
-    ProductResponse updateProduct(Long id, ProductRequest request);
+  List<ProductResponse> getProductsByBrand(String brandName);
+	
+  ProductResponse updateProduct(Long id, ProductRequest request);
 
-    ProductResponse getProductById(Long id);
+  ProductResponse getProductById(Long id);
 
-    List<ProductResponse> getAllProducts();
+  void deactivateProduct(Long id);
 
-    List<ProductResponse> getActiveProducts();
+   void activateProduct(Long id);
 
-    void deactivateProduct(Long id);
-
-    void activateProduct(Long id);
+   List<ProductResponse> getAllActiveProducts();
 
 }
