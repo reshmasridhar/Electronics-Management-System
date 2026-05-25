@@ -17,6 +17,9 @@ public class ProductMapper {
         response.setBrandName(product.getBrand().getName());
         response.setCategoryName(product.getCategory().getName());
         response.setAvailableStock(availableStock);
+        response.setActive(product.isActive());
+        response.setBrandId(product.getBrand().getId());
+        response.setCategoryId(product.getCategory().getId());
         return response;
     }
 

@@ -71,7 +71,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<ProductResponse> getAllActiveProducts() {
 
-        return productRepository.findByActiveTrue()
+        return productRepository.findAll()
                 .stream()
                 .map(p -> ProductMapper.toResponse(
                         p,

@@ -59,7 +59,7 @@ public class CategoryServiceImpl implements CategoryService{
 	@Override
 	public List<CategoryResponse> getAllCategories() {
 		// TODO Auto-generated method stub
-		 return categoryRepository.findByActiveTrue()
+		 return categoryRepository.findAll()
 	                .stream()
 	                .map(CategoryMapper::toResponse)
 	                .collect(Collectors.toList());

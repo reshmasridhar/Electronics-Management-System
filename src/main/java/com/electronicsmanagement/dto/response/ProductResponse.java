@@ -11,6 +11,10 @@ public class ProductResponse {
     private String brandName;
     private String categoryName;
     private int availableStock;
+    private Boolean active;
+    private Long brandId;
+    private Long categoryId;
+    
 	public Long getId() {
 		return id;
 	}
@@ -52,6 +56,24 @@ public class ProductResponse {
 	}
 	public void setAvailableStock(int availableStock) {
 		this.availableStock = availableStock;
+	}
+	public Boolean getActive() {
+		return active;
+	}
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+	public Long getBrandId() {
+		return brandId;
+	}
+	public void setBrandId(Long brandId) {
+		this.brandId = brandId;
+	}
+	public Long getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
 	}
     
     
